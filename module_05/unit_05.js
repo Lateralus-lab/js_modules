@@ -7,9 +7,11 @@ const outOne = document.querySelector('.out-1');
 const blankOne = ' ';
 
 function t1() {
+    let out = '';
     for (let i = 1; i < 51; i++) {
-        outOne.innerHTML += i + blankOne;
+        out += i + blankOne;
     }
+    outOne.innerHTML = out;
 }
 
 document.querySelector('.b-1').onclick = t1;
@@ -23,9 +25,11 @@ const outTwo = document.querySelector('.out-2');
 const blankTwo = ' ';
 
 function t2() {
+    let out = '';
     for (let i = 2; i < 124; i = i + 2) {
-        outTwo.innerHTML += i + blankTwo;
+        out += i + blankTwo;
     }
+    outTwo.innerHTML = out;
 }
 
 document.querySelector('.b-2').onclick = t2;
@@ -40,9 +44,11 @@ const outThree = document.querySelector('.out-3');
 const blankThree = ' ';
 
 function t3() {
+    let out = '';
     for (let i = 25; i > 6; i--) {
-        outThree.innerHTML += i + blankThree;
+        out += i + blankThree;
     }
+    outThree.innerHTML = out;
 }
 
 document.querySelector('.b-3').onclick = t3;
@@ -56,9 +62,11 @@ const outFour = document.querySelector('.out-4');
 const underFour = '_';
 
 function t4() {
+    let out = '';
     for (let i = 77; i > 34; i--) {
-        outFour.innerHTML += i + underFour;
+        out += i + underFour;
     }
+    outFour.innerHTML = out;
 }
 
 document.querySelector('.b-4').onclick = t4;
@@ -73,13 +81,15 @@ const outFive = document.querySelector('.out-5');
 const underFive = '_';
 
 function t5() {
+    let out = '';
     for (let i = 1; i < 18; i++) {
-        outFive.innerHTML += i + underFive;
+        out += i + underFive;
         if (i % 2 == 0) {
             outFive.innerHTML += '**'
         } else {
-            outFive.innerHTML += '*'
+            out += '*'
         }
+        outFive.innerHTML = out;
     }
 }
 
@@ -119,9 +129,11 @@ const inputSeven = document.querySelector('.i-7');
 const outSeven = document.querySelector('.out-7');
 
 function t7() {
-    for (let i = 0; i <= inputSeven.value; i++) {
-        outSeven.innerHTML += i + ' ';
+    let out = '';
+    for (let i = inputSeven.value; i !== -1; i--) {
+        out += i + ' ';
     }
+    outSeven.innerHTML = out;
 }
 
 document.querySelector('.b-7').onclick = t7;
@@ -140,9 +152,11 @@ const inputEightTwo = document.querySelector('.i-82');
 const outEight = document.querySelector('.out-8');
 
 function t8() {
+    let out = '';
     for (let i = inputEightOne.value; i <= inputEightTwo.value; i++) {
-        outEight.innerHTML += i + ' ';
+        out += i + ' ';
     }
+    outEight.innerHTML = out;
 }
 
 document.querySelector('.b-8').onclick = t8;
@@ -157,8 +171,22 @@ document.querySelector('.b-8').onclick = t8;
 // Задача решается с помощью цикла. Подсказка - вначале делаем проверку, а потом запускаем цикл.
 // цикл - один
 
-function t9() {
+const inputNineOne = document.querySelector('.i-91');
+const inputNineTwo = document.querySelector('.i-92');
+const outNine = document.querySelector('.out-9');
 
+function t9() {
+    let out = '';
+    if (inputNineOne.value < inputNineTwo.value) {
+        for (i = inputNineOne.value; i <= inputNineTwo.value; i++) {
+            out += i + ' ';
+        }
+    } else {
+        for (i = inputNineTwo.value; i <= inputNineOne.value; i++) {
+            out += i + ' ';
+        }
+    }
+    outNine.innerHTML = out;
 }
 
 document.querySelector('.b-9').onclick = t9;
@@ -168,8 +196,16 @@ document.querySelector('.b-9').onclick = t9;
 // Кнопка b-10 запускает функцию t10. Функция должна выводить в out-10 четные годы от 1950 до 2000 включительно.
 // Разделитель - пробел. Задача решается через цикл, а четность - через шаг (равный 2).
 
-function t10() {
+const outTen = document.querySelector('.out-10');
 
+function t10() {
+    let out = '';
+    for (i = 1950; i <= 2000; i++) {
+        if (i % 2 == 0) {
+            out += i + ' ';
+        }
+    }
+    outTen.innerHTML = out;
 }
 
 document.querySelector('.b-10').onclick = t10;
@@ -182,9 +218,15 @@ document.querySelector('.b-10').onclick = t10;
 //     В результате должно получиться так:
 //     one 3 4 two
 
+const elementEleven = document.querySelectorAll('.div-11');
+const outEleven = document.querySelector('.out-11');
 
 function t11() {
-
+    let out = '';
+    for (let i = 0; i < elementEleven.length; i++) {
+        out += elementEleven[i].innerHTML + ' ';
+    }
+    outEleven.innerHTML = out;
 }
 
 document.querySelector('.b-11').onclick = t11;
@@ -195,9 +237,12 @@ document.querySelector('.b-11').onclick = t11;
 // перебрать их с помощью цикла. Обращение к div выглядит так elem[i]
 // применить к каждому elem[i].style.background = ‘orange’
 
+const elementTwelve = document.querySelectorAll('.div-12');
 
 function t12() {
-
+    for (let i = 0; i < elementTwelve.length; i++) {
+        elementTwelve[i].style.background = 'orange';
+    }
 }
 
 document.querySelector('.b-12').onclick = t12;
@@ -208,8 +253,14 @@ document.querySelector('.b-12').onclick = t12;
 // перебрать их с помощью цикла. Обращение к элементу выглядит так elem[i]
 // применить к каждому elem[i].value, причем к value первого должно равняться 1, второго - 2, третьего - 3...
 
-function t13() {
+const inputThirteen = document.querySelectorAll('.i-13');
 
+function t13() {
+    for (let i = 0; i < inputThirteen.length; i++) {
+        if (inputThirteen[i].value) {
+            inputThirteen[i].value = i + 1;
+        }
+    }
 }
 
 document.querySelector('.b-13').onclick = t13;
@@ -220,9 +271,17 @@ document.querySelector('.b-13').onclick = t13;
 // перебрать их с помощью цикла. Обращение к элементу выглядит так elem[i]
 // вывести в out-14 value выбранного. Проверить выбран ли элемент можно с помощью elem[i].checked.
 
+const inputFourteen = document.querySelectorAll('.i-14');
+
 
 function t14() {
-
+    let out = '';
+    for (let i = 0; i < inputFourteen.length; i++) {
+        if (inputFourteen[i].checked) {
+            out = inputFourteen[i].value;
+        }
+    }
+    document.querySelector('.out-14').innerHTML = out;
 }
 
 document.querySelector('.b-14').onclick = t14;
@@ -234,7 +293,31 @@ document.querySelector('.b-14').onclick = t14;
 // Подсказка (10 - i) + ' ' + i
 
 function t15() {
-
+    let out = '';
+    for (let i = 11; i >= 0; i--) {
+        if (i == 10) {
+            out += ' ' + i + ' ' + 0;
+        } else if (i == 9) {
+            out += ' ' + i + ' ' + 1;
+        } else if (i == 8) {
+            out += ' ' + i + ' ' + 2;
+        } else if (i == 7) {
+            out += ' ' + i + ' ' + 3;
+        } else if (i == 6) {
+            out += ' ' + i + ' ' + 4;
+        } else if (i == 5) {
+            out += ' ' + i + ' ' + 5;
+        } else if (i == 4) {
+            out += ' ' + i + ' ' + 6;
+        } else if (i == 3) {
+            out += ' ' + i + ' ' + 7;
+        } else if (i == 2) {
+            out += ' ' + i + ' ' + 8;
+        } else if (i == 1) {
+            out += ' ' + i + ' ' + 9 + ' ' + '0' + ' ' + '10';
+        }
+    }
+    document.querySelector('.out-15').innerHTML = out;
 }
 
 document.querySelector('.b-15').onclick = t15;
