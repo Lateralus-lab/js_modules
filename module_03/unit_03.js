@@ -6,9 +6,9 @@ const o1 = document.querySelector('.out-1');
 
 function f1() {
     if (inputOne.value == 4) {
-        o1.innerHTML = 'True';
+        o1.innerHTML = true;
     } else {
-        o1.innerHTML = 'False';
+        o1.innerHTML = false;
     }
 }
 
@@ -42,10 +42,10 @@ const inputThreeTwo = document.querySelector('.i-32');
 const o3 = document.querySelector('.out-3');
 
 function f3() {
-    const numOne = inputThreeOne.value;
-    const numTwo = inputThreeTwo.value;
+    const numOne = +inputThreeOne.value;
+    const numTwo = +inputThreeTwo.value;
 
-    if (numOne.value >= numTwo.value) {
+    if (numOne >= numTwo) {
         o3.innerHTML = numOne;
     } else {
         o3.innerHTML = numTwo;
@@ -61,12 +61,12 @@ const inputFour = document.querySelector('.i-4');
 const o4 = document.querySelector('.out-4');
 
 function f4() {
-    const sumValue = inputFour.value;
+    const sumValue = +inputFour.value;
 
     if (sumValue >= 18) {
-        o4.innerHTML = '1';
+        o4.innerHTML = 1;
     } else {
-        o4.innerHTML = '0';
+        o4.innerHTML = 0;
     }
 }
 
@@ -136,13 +136,13 @@ function f8() {
 
     switch (sumEight) {
         case '1':
-            o8.innerHTML = 'One';
+            o8.innerHTML = 'one';
             break;
         case '2':
-            o8.innerHTML = 'Two';
+            o8.innerHTML = 'two';
             break;
         case '3':
-            o8.innerHTML = 'Three';
+            o8.innerHTML = 'three';
             break;
     }
 }
