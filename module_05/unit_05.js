@@ -63,7 +63,7 @@ const underFour = '_';
 
 function t4() {
     let out = '';
-    for (let i = 77; i > 34; i--) {
+    for (let i = 77; i > 34; i = i - 3) {
         out += i + underFour;
     }
     outFour.innerHTML = out;
@@ -85,7 +85,7 @@ function t5() {
     for (let i = 1; i < 18; i++) {
         out += i + underFive;
         if (i % 2 == 0) {
-            outFive.innerHTML += '**'
+            out += '**';
         } else {
             out += '*'
         }
@@ -257,9 +257,7 @@ const inputThirteen = document.querySelectorAll('.i-13');
 
 function t13() {
     for (let i = 0; i < inputThirteen.length; i++) {
-        if (inputThirteen[i].value) {
-            inputThirteen[i].value = i + 1;
-        }
+        inputThirteen[i].value = i + 1;
     }
 }
 
