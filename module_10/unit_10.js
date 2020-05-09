@@ -127,7 +127,7 @@ function f8() {
     ar8[4] = 17;
     ar8[6] = 5;
     for (i = 0; i < ar8.length; i++) {
-        outTwo += ar8[i] + '-';
+        outTwo += ar8[i] + ' ';
     }
     out += ar8;
     document.querySelector('.out-8').textContent = out;
@@ -145,12 +145,7 @@ document.querySelector('.b-8').onclick = f8;
 let ar9 = [100, 200, 300, 400, 700, 121];
 
 function f9() {
-    let out = '';
-    console.log(ar9[5]);
-    // for (i = 0; i < ar9.length - 1; i++) {
-    //     out = ar9[5];
-    // }
-    document.querySelector('.out-9').textContent = out;
+    document.querySelector('.out-9').textContent = ar9[ar9.length - 1];
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -164,11 +159,7 @@ document.querySelector('.b-9').onclick = f9;
 let ar10 = [100, 200, 300, 400, 700, 121];
 
 function f10() {
-    let out = '';
-    for (i = 0; i < ar10.length - 1; i++) {
-        out += ar10[1], ar10[5];
-    }
-    document.querySelector('.out-10').textContent = out;
+    document.querySelector('.out-10').textContent = ar10[1] + ' ' + ar10[ar10.length - 1];
 }
 
 document.querySelector('.b-10').onclick = f10;
@@ -184,7 +175,17 @@ document.querySelector('.b-10').onclick = f10;
 let ar11 = [2, 3, 4, 5, 6, 7];
 
 function f11() {
+    let a4 = ar11[2];
+    ar11[2] = ar11[4];
+    ar11[4] = a4;
 
+    let out = '';
+    let i = 0;
+    while (i <= ar11.length - 1) {
+        out = ar11.join(' ');
+        i++;
+    }
+    document.querySelector('.out-11').textContent = out;
 }
 
 document.querySelector('.b-11').onclick = f11;
@@ -199,7 +200,15 @@ document.querySelector('.b-11').onclick = f11;
 let ar12 = ['test', 'west', 'list', 'class', 'best'];
 
 function f12() {
+    let a0 = ar12[0];
+    ar12[0] = ar12[ar12.length - 1];
+    ar12[ar12.length - 1] = a0;
 
+    let out = '';
+    for (i = 0; i < ar12.length - 1; i++) {
+        out = ar12.join(' ');
+    }
+    document.querySelector('.out-12').textContent = out;
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -214,9 +223,13 @@ document.querySelector('.b-12').onclick = f12;
 
 
 let ar13 = ['test', 'west', 'list', 'class', 'best'];
+let allArray = ar13.keys();
 
 function f13() {
 
+    for (const key of allArray) {
+        document.querySelector('.out-13').textContent += key + ' ';
+    }
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -231,7 +244,12 @@ document.querySelector('.b-13').onclick = f13;
 let ar14 = [1, 2, 3, 'hello', 66];
 
 function f14() {
+    let out = '';
+    for (let i = 5; i > ar14.length - 1; i--) {
+        out += ar14.reverse().join(' ');
+    }
 
+    document.querySelector('.out-14').textContent = out;
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -245,7 +263,13 @@ document.querySelector('.b-14').onclick = f14;
 let ar15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
 
 function f15() {
-
+    let out = '';
+    for (let i = 0; i < ar15.length - 1; i++) {
+        if (ar15[i] > 0) {
+            out += ar15[i] + ' ';
+        }
+        document.querySelector('.out-15').textContent = out;
+    }
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -261,7 +285,19 @@ let ar16_odd = [];
 let ar16_even = [];
 
 function f16() {
-
+    let outOdd = '';
+    let outEven = '';
+    for (let i = 0; i < ar16.length; i++) {
+        if (ar16[i] % 2 == 0) {
+            ar16_even[i] = ar16[i];
+            outEven += ar16_even[i] + ' ';
+        } else {
+            ar16_odd[i] = ar16[i];
+            outOdd += ar16_odd[i] + ' ';
+        }
+    }
+    document.querySelector('.out-16-odd').textContent = outOdd;
+    document.querySelector('.out-16-even').textContent = outEven;
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -275,7 +311,13 @@ document.querySelector('.b-16').onclick = f16;
 let ar17 = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
 
 function f17() {
-
+    let out = '';
+    for (let i = 0; i < ar17.length - 1; i++) {
+        if (ar17[i] > 3) {
+            out += ar17[i] + ' ';
+        }
+    }
+    document.querySelector('.out-17').textContent = out;
 }
 
 document.querySelector('.b-17').onclick = f17;
@@ -290,7 +332,7 @@ document.querySelector('.b-17').onclick = f17;
 let ar18 = [15, 24, 13, 78, 21, 4, 45, 67];
 
 function f18() {
-
+    document.querySelector('.out-18').textContent = Math.max.apply(Math, ar18);
 }
 
 document.querySelector('.b-18').onclick = f18;
@@ -305,7 +347,7 @@ document.querySelector('.b-18').onclick = f18;
 let ar19 = [15, 424, 313, 78, 241, 4, 45, 67];
 
 function f19() {
-
+    document.querySelector('.out-19').textContent = Math.min.apply(Math, ar19);
 }
 
 document.querySelector('.b-19').onclick = f19;
@@ -317,9 +359,10 @@ document.querySelector('.b-19').onclick = f19;
 // Вывод в out-20
 
 let ar20 = [4, 5, 6, 7, 8, 9, 10];
+let reducer = (sumOne, sumTwo) => sumOne + sumTwo;
 
 function f20() {
-
+    document.querySelector('.out-20').textContent = ar20.reduce(reducer);
 }
 
 document.querySelector('.b-20').onclick = f20;
