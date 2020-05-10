@@ -129,7 +129,7 @@ function f8() {
     for (i = 0; i < ar8.length; i++) {
         outTwo += ar8[i] + ' ';
     }
-    out += ar8;
+    out += ar8.length;
     document.querySelector('.out-8').textContent = out;
     document.querySelector('.out-8-1').textContent = outTwo;
 }
@@ -159,7 +159,7 @@ document.querySelector('.b-9').onclick = f9;
 let ar10 = [100, 200, 300, 400, 700, 121];
 
 function f10() {
-    document.querySelector('.out-10').textContent = ar10[1] + ' ' + ar10[ar10.length - 1];
+    document.querySelector('.out-10').textContent = ar10[1] + ar10[ar10.length - 1];
 }
 
 document.querySelector('.b-10').onclick = f10;
@@ -222,18 +222,29 @@ document.querySelector('.b-12').onclick = f12;
 //  0 1 1 2 2 3
 
 
+// let ar13 = ['test', 'west', 'list', 'class', 'best'];
+// let allArray = ar13.keys();
+
+// function f13() {
+
+//     for (const key of allArray) {
+//         document.querySelector('.out-13').textContent += key + ' ';
+//     }
+// }
+
+// document.querySelector('.b-13').onclick = f13;
+
 let ar13 = ['test', 'west', 'list', 'class', 'best'];
-let allArray = ar13.keys();
 
 function f13() {
-
-    for (const key of allArray) {
-        document.querySelector('.out-13').textContent += key + ' ';
+    let out = '';
+    for (let i = 0; i < ar13.length; i++) {
+        out += [i] + ' ';
     }
+    document.querySelector('.out-13').textContent = out;
 }
 
 document.querySelector('.b-13').onclick = f13;
-
 
 // Task 14
 // Используя цикл выведите на страницу массив ar14 в обратном порядке. Разделитель - пробел.
@@ -241,18 +252,31 @@ document.querySelector('.b-13').onclick = f13;
 // Вывод - по нажатию кнопки b-14
 // Вывод в out-14
 
+// let ar14 = [1, 2, 3, 'hello', 66];
+
+// function f14() {
+//     let out = '';
+//     for (let i = 5; i > ar14.length - 1; i--) {
+//         out += ar14.reverse().join(' ');
+//     }
+
+//     document.querySelector('.out-14').textContent = out;
+// }
+
+// document.querySelector('.b-14').onclick = f14;
+
 let ar14 = [1, 2, 3, 'hello', 66];
 
 function f14() {
     let out = '';
-    for (let i = 5; i > ar14.length - 1; i--) {
-        out += ar14.reverse().join(' ');
+    for (let i = ar14.length - 1; -1 < i; i--) {
+        out += ar14[i] + ' ';
     }
-
     document.querySelector('.out-14').textContent = out;
 }
 
 document.querySelector('.b-14').onclick = f14;
+
 
 // Task 15
 // Используя цикл выведите на страницу элементы массива ar15, которые больше нуля. Разделитель - пробел.
@@ -264,7 +288,7 @@ let ar15 = [0, 2, 5, -4, 6, 22, -9, -12, 8, 12, 13, 78];
 
 function f15() {
     let out = '';
-    for (let i = 0; i < ar15.length - 1; i++) {
+    for (let i = 0; i < ar15.length; i++) {
         if (ar15[i] > 0) {
             out += ar15[i] + ' ';
         }
@@ -312,9 +336,11 @@ let ar17 = [3, 0, 2, 6, 0, 1, 3, 1, 9, 0, 2, 0];
 
 function f17() {
     let out = '';
+    let counter = 0 + 1;
     for (let i = 0; i < ar17.length - 1; i++) {
         if (ar17[i] > 3) {
-            out += ar17[i] + ' ';
+            console.log(ar17[i]);
+            out = counter++;
         }
     }
     document.querySelector('.out-17').textContent = out;
