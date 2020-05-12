@@ -92,10 +92,13 @@ document.querySelector('.b-6').onclick = f6;
 let d7 = ['china', 'india', 'brazil', 'japan', 'egypt'];
 
 function f7() {
-    newKey = [];
-    for (let i = d7.length - 1; i > -1; i--) {
-        document.querySelector('.out-7').textContent = d7 - newKey;
+    let newArr = [];
+    for (let i = 0; i < d7.length; i++) {
+        if (i !== d7.length - 1) {
+            newArr[i] = d7[i];
+        }
     }
+    d7 = newArr;
     showArr('.out-7', d7);
 }
 
@@ -110,7 +113,12 @@ document.querySelector('.b-7').onclick = f7;
 let d8 = [2, '4', 12, 67, 'hello'];
 
 function f8() {
-
+    let a = [];
+    a[0] = document.querySelector('.i-8').value;
+    for (let i = 0; i < d8.length; i++) {
+        a[i + 1] = d8[i];
+    }
+    d8 = a;
     showArr('.out-8', d8);
 }
 
@@ -125,7 +133,11 @@ document.querySelector('.b-8').onclick = f8;
 let d9 = [100, 200, 300, 400, 700, 121];
 
 function f9() {
-
+    let newArray = [];
+    for (let i = 0; i < d9.length; i++) {
+        newArray[i - 1] = d9[i];
+    }
+    d9 = newArray;
     showArr('.out-9', d9);
 }
 
@@ -140,7 +152,7 @@ document.querySelector('.b-9').onclick = f9;
 let d10 = [3, 14, 15, 92, 6];
 
 function f10() {
-
+    d10 = d10.reverse();
     showArr('.out-10', d10);
 }
 
@@ -154,9 +166,16 @@ document.querySelector('.b-10').onclick = f10;
 // Вывод в out-11
 
 let d11 = [2, 3, 4, 5, 6, 7];
+const inputEleven = document.querySelector('.i-11');
 
 function f11() {
-
+    let out = '';
+    for (let i = 0; i < d11.length; i++) {
+        if (+inputEleven.value == d11[i]) {
+            out += d11.indexOf(+inputEleven.value);
+        }
+    }
+    document.querySelector('.out-11').textContent = out;
 }
 
 document.querySelector('.b-11').onclick = f11;
