@@ -286,18 +286,14 @@ let a15 = [
 ];
 
 function f15() {
-    let out = '';
-    let lgth = [];
+    let outArr = a15[0].length;
     for (let i = 0; i < a15.length; i++) {
-        console.log(a15[i]);
-        if (Math.max.apply(Math, a15[i]) > a15[i]) {
-            lgth = a15[i];
+        if (a15[i].length > outArr) {
+            outArr = a15[i].length;
         }
     }
-    out += lgth;
-    document.querySelector('.out-15').textContent = out;
+    document.querySelector('.out-15').textContent = outArr;
 }
-
 document.querySelector('.b-15').onclick = f15;
 
 // Task 16
@@ -324,13 +320,16 @@ console.groupEnd();
 //  Т.е вы руками просто пишите массив такой, чтобы условия выполнялись.
 
 let a17 = [
-
+    [0, 6, 6],
+    [0, 7],
+    [],
+    [0, 0, 8]
 ];
 
 console.group('Task 17 ================');
-// console.log(a17[3][2] == 8);
-// console.log(a17[1][1] == 7);
-// console.log(a17[0][2] == 6);
+console.log(a17[3][2] == 8);
+console.log(a17[1][1] == 7);
+console.log(a17[0][2] == 6);
 
 console.groupEnd();
 
@@ -339,13 +338,17 @@ console.groupEnd();
 //  Т.е вы руками просто пишите массив такой, чтобы условия выполнялись.
 
 let a18 = [
-
+    [3],
+    [],
+    [0, 12],
+    [],
+    [8]
 ];
 
 console.group('Task 18 ================');
-// console.log(a18[0] == 3);
-// console.log(a18[4][0] == 8);
-// console.log(a18[2][1] == 12);
+console.log(a18[0] == 3);
+console.log(a18[4][0] == 8);
+console.log(a18[2][1] == 12);
 
 console.groupEnd();
 
@@ -354,13 +357,15 @@ console.groupEnd();
 //  Т.е вы руками просто пишите массив такой, чтобы условия выполнялись.
 
 let a19 = [
-
+    [[0, 3]],
+    [[0, 0, 8]],
+    [0, [12]]
 ];
 
 console.group('Task 19 ================');
-// console.log(a19[0][0][1] == 3);
-// console.log(a19[1][0][2] == 8);
-// console.log(a19[2][1][0] == 12);
+console.log(a19[0][0][1] == 3);
+console.log(a19[1][0][2] == 8);
+console.log(a19[2][1][0] == 12);
 
 console.groupEnd();
 
@@ -369,12 +374,15 @@ console.groupEnd();
 //  Т.е вы руками просто пишите массив такой, чтобы условия выполнялись.
 
 let a20 = [
-
+    [],
+    [0, [0, 9]],
+    [0, 0, [18]],
+    [12]
 ];
 
 console.group('Task 20 ================');
-// console.log(a19[1][1][1] == 9);
-// console.log(a19[2][2] == 18);
-// console.log(a19[3]== 12);
+console.log(a20[1][1][1] == 9);
+console.log(a20[2][2] == 18);
+console.log(a20[3] == 12);
 
 console.groupEnd();
