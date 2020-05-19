@@ -89,10 +89,10 @@ document.querySelector('.b-4').onclick = () => {
 
 function f5(arr, block) {
     let out = '';
-    // цикл
-    // формат вывода `${key} : ${arr[key]} <br>`;
-    //
-    // тут вывод в блок block
+    for (let key in arr) {
+        out += `${key} : ${arr[key]} <br>`;
+    }
+    document.querySelector(block).innerHTML = out;
 }
 
 // давайте протестируем f5
@@ -109,13 +109,23 @@ document.querySelector('.b-5').onclick = () => {
 // Task 6
 // Добавьте input .i-61 и i-62. При нажатии b-6 выполняете функцию f6. Функция должна получать из i-61 ключ, а из i-62 значение и добавлять его в массив a6. После этого, с помощью функции f5 выводите массив a6 в out-6.
 
+const inputSixOne = document.querySelector('.i-61');
+const inputSixTwo = document.querySelector('.i-62');
+
 let a6 = {
     "b": 17,
     "e": 22
 };
 
 function f6() {
-
+    let out = '';
+    a6[inputSixOne.value] = inputSixOne.value;
+    a6[inputSixOne.value] = inputSixTwo.value;
+    for (let key in a6) {
+        out += a6[key];
+        console.log(a6);
+    }
+    document.querySelector('.out-6').textContent = out;
 }
 
 document.querySelector('.b-6').onclick = f6;
@@ -123,14 +133,25 @@ document.querySelector('.b-6').onclick = f6;
 // Task 7
 // Добавьте input .i-7. При нажатии b-7 выполняете функцию f7. Функция должна получать из i-7 ключ. Если такой ключ есть в a7 то выводить 1 в out-7, если нет - 0.
 
+const inputSeven = document.querySelector('.i-7');
+
 let a7 = {
     "b": 17,
     "e": 22
 };
 
-
 function f7() {
-
+    let out = '';
+    for (let key in a7) {
+        a7[inputSeven.value] = inputSeven.value;
+        if (a7[inputSeven.value] == key) {
+            out = 1;
+            break;
+        } else {
+            out = 0;
+        }
+    }
+    document.querySelector('.out-7').textContent = out;
 }
 
 document.querySelector('.b-7').onclick = f7;
@@ -138,19 +159,30 @@ document.querySelector('.b-7').onclick = f7;
 // Task 8
 // Добавьте input .i-8. При нажатии b-8 выполняете функцию f8. Функция должна выводить значение в out-8, если ключ введенный в i-8 есть в массиве, если нет - 0.
 
+const inputEight = document.querySelector('.i-8');
+
 let a8 = {
     "b": 17,
     "e": 22
 };
 
 function f8() {
-
+    let out = '';
+    a8[inputEight.value] = inputEight.value;
+    for (let key in a8) {
+        if (a8[inputEight.value] == key) {
+            out = a7[key];
+        }
+    }
+    document.querySelector('.out-8').textContent = out;
 }
 
 document.querySelector('.b-8').onclick = f8;
 
 // Task 9
 // Добавьте input .i-9. При нажатии b-9 выполняете функцию f9. Функция должна вывести в out-9 все ключи массива a9, которые содержат значение, равное значению в input.i-9. Вывод через пробел. Если значений - нет - то выводить пустую строку.
+
+const inputNine = document.querySelector('.i-9');
 
 let a9 = {
     "b": 17,
@@ -161,7 +193,13 @@ let a9 = {
 };
 
 function f9() {
-
+    let out = '';
+    for (let key in a9) {
+        if (inputNine.value == a9[key]) {
+            out += key + ' ';
+        }
+    }
+    document.querySelector('.out-9').textContent = out;
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -170,9 +208,13 @@ document.querySelector('.b-9').onclick = f9;
 // Давайте напишем полезную функцию f10, которая проверяет есть ли значение в ассоциативном массиве. Фукнция должна возвращать true если есть, и false если нет. Массив и значение передавать функции в качестве параметров.
 
 function f10(arr, val) {
-
-    //return true;
-    //return false;
+    for (let key in arr) {
+        if (arr[key] == val) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 document.querySelector('.b-10').onclick = () => {
@@ -188,6 +230,8 @@ document.querySelector('.b-10').onclick = () => {
 // Task 11
 // При нажатии b-11 выполняете функцию f11. Функция должна получить ключ из i-11 и удалить запись из массива a11 с таким ключем. После этого вывести массив в out-11. Для вывода используйте функцию f5.
 
+const inputEleven = document.querySelector('.i-11');
+
 let a11 = {
     "b": 17,
     "e": 22,
@@ -197,6 +241,15 @@ let a11 = {
 };
 
 function f11() {
+    let out = '';
+    a11[inputEleven.value] = inputEleven.value;
+    for (let key in a11) {
+        if (a11[inputEleven.value] == key) {
+            delete a11[inputEleven.value];
+            console.log(a11);
+        }
+    }
+    document.querySelector('.out-11').innerHTML = f5;
 }
 
 document.querySelector('.b-11').onclick = f11;
