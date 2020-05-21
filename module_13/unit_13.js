@@ -241,21 +241,21 @@ let a11 = {
 };
 
 function f11() {
-    let out = '';
     a11[inputEleven.value] = inputEleven.value;
     for (let key in a11) {
         if (a11[inputEleven.value] == key) {
             delete a11[inputEleven.value];
-            console.log(a11);
         }
     }
-    document.querySelector('.out-11').innerHTML = f5;
+    f5(a11, '.out-11');
 }
 
 document.querySelector('.b-11').onclick = f11;
 
 // Task 12
 //  При нажатии b-12 выполняете функцию f12. Функция должна получить значение из i-12 и удалить запись из массива a12 с таким значением. После этого вывести массив в out-12. Для вывода используйте функцию f5.
+
+const inputTwelve = document.querySelector('.i-12');
 
 let a12 = {
     "b": 17,
@@ -266,7 +266,13 @@ let a12 = {
 };
 
 function f12() {
-
+    let val = +inputTwelve.value;
+    for (let key in a12) {
+        if (a12[key] == val) {
+            delete a12[key];
+        }
+    }
+    f5(a12, '.out-12');
 }
 
 document.querySelector('.b-12').onclick = f12;
@@ -282,7 +288,13 @@ let a13 = {
 };
 
 function f13() {
-
+    let out = '';
+    for (let key in a13) {
+        if (typeof (a13[key]) === 'number') {
+            out += a13[key] + ' ';
+        }
+    }
+    document.querySelector('.out-13').textContent = out;
 }
 
 document.querySelector('.b-13').onclick = f13;
@@ -299,7 +311,11 @@ let a14 = {
 };
 
 function f14() {
-
+    let out = '';
+    for (let key in a14) {
+        out += a14[key][0] + ' ';
+    }
+    document.querySelector('.out-14').textContent = out;
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -317,7 +333,13 @@ let a15 = {
 };
 
 function f15() {
-
+    let out = '';
+    for (let key in a15) {
+        for (let i = 0; i < a15[key].length; i++) {
+            out += a15[key][i] + ' ';
+        }
+    }
+    document.querySelector('.out-15').textContent = out;
 }
 
 document.querySelector('.b-15').onclick = f15;
@@ -341,7 +363,11 @@ let a16 = {
 }
 
 function f16() {
-
+    let out = '';
+    for (let key in a16) {
+        out += a16[key]['name'] + ' ';
+    }
+    document.querySelector('.out-16').textContent = out;
 }
 
 document.querySelector('.b-16').onclick = f16;
@@ -366,13 +392,21 @@ let a17 = {
 }
 
 function f17() {
-
+    let out = '';
+    for (let key in a17) {
+        if (a17[key]['age'] > 30) {
+            out += a17[key]['name'] + ' ';
+        }
+    }
+    document.querySelector('.out-17').textContent = out;
 }
 
 document.querySelector('.b-17').onclick = f17;
 
 // Task 18
 // При нажатии b-18 выполняете функцию f18. Функция должна в out-18 вывести станции метро из массива a18 той ветки, которую пользователь ввел в i-18. Вывод станций - через пробел. Если ветка не найдена выводите пустую строку.
+
+const inputEighteen = document.querySelector('.i-18');
 
 let a18 = {
     "red": ['Akademmistechko', 'Nyvky', 'Universytet', 'Lisova'],
@@ -381,12 +415,25 @@ let a18 = {
 }
 
 function f18() {
-
+    let out = '';
+    const val = inputEighteen.value;
+    for (let key in a18) {
+        if (val == key) {
+            for (let i = 0; i < a18[key].length; i++) {
+                out += a18[key][i] + ' ';
+            }
+        }
+    }
+    document.querySelector('.out-18').textContent = out;
 }
+
+document.querySelector('.b-18').onclick = f18;
 
 // Task 19
 // При нажатии b-19 выполняете функцию f19. Функция должна в out-19 вывести цвет ветки станции которую пользователь ввел в i-19. Пользователь может вводить текст как с большой, так и с маленькой буквы. Если ветка не найдена - выводите пустую строку.
 // Пользователь ввел Lisova - вывод red, ввел Obolon - вывод blue.
+
+const inputNineteen = document.querySelector('.i-19');
 
 let a19 = {
     "red": ['Akademmistechko', 'Nyvky', 'Universytet', 'Lisova'],
@@ -395,9 +442,20 @@ let a19 = {
 }
 
 function f19() {
-
+    let out = '';
+    let val = inputNineteen.value;
+    for (let key in a19) {
+        for (let i = 0; i < a19[key].length; i++) {
+            if (a19[key][i] == val) {
+                out = key;
+                break;
+            } else if (a19[key][i].toLowerCase() == val) {
+                out = key;
+            }
+        }
+    }
+    document.querySelector('.out-19').textContent = out;
 }
-
 document.querySelector('.b-19').onclick = f19;
 
 // Task 20
@@ -410,7 +468,15 @@ let a20 = {
 }
 
 function f20() {
-
+    let out = '';
+    for (let key in a20) {
+        for (i = 0; i < a20[key].length; i++) {
+            if (a20[key][i][1] == '2') {
+                out += a20[key][i] + ' ';
+            }
+        }
+    }
+    document.querySelector('.out-20').textContent = out;
 }
 
 document.querySelector('.b-20').onclick = f20
